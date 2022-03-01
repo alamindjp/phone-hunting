@@ -52,7 +52,7 @@ const searchResultDisplay = phones => {
                 <div class="card-body ms-2 my-3">
                     <h5 class="card-title ">${phone.phone_name}</h5>
                     <h4 class="card-text">${phone.brand}</h4>
-                    <button onclick="phoneDetails('${phone.slug}')" class="btn bg-info mt-3 w-50" type="button" id="details-button">Details</button>
+                    <button onclick="phoneDetails('${phone.slug}')" class="btn bg-info mt-3 w-50 fw-bolder" type="button" id="details-button">Details</button>
                 </div>
             </div>  
         `
@@ -78,6 +78,10 @@ const phoneDetails = (id) => {
 const displayPhoneDetail = phone => {
     // debugger;
     // console.log(phone.others)
+    const others = phone.others
+    if (!others) {
+        return
+    }
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = ''
     const div = document.createElement('div');
@@ -99,9 +103,9 @@ const displayPhoneDetail = phone => {
                 <p class="mb-1 ms-2">${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[5]}, ${phone.mainFeatures.sensors[4]}</p>
             <h5>
             <h5 class=""><b>Other :</b>
-                <p class="mb-1 ms-2">${phone.others.WLAN},</p>
-                <p class="mb-1 ms-2">${phone.others.Bluetooth},</p>
-                <p class="mb-1 ms-2">${phone.others.GPS},</p>
+                <p class="mb-1 ms-2">${others.WLAN},</p>
+                <p class="mb-1 ms-2">${others.Bluetooth},</p>
+                <p class="mb-1 ms-2">${others.GPS},</p>
             <h5>
         </div>
     </div>
