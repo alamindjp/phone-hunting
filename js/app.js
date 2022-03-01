@@ -77,7 +77,7 @@ const phoneDetails = (id) => {
 */
 const displayPhoneDetail = phone => {
     // debugger;
-    // console.log(phone.others)
+    console.log(phone.others)
     const others = phone.others
     if (!others) {
         return
@@ -91,7 +91,7 @@ const displayPhoneDetail = phone => {
     <div class="card-body">
         <p class="text-center">${phone.releaseDate}</p>
         <h2 class="card-title mb-4 text-center">${phone.name}</h2>
-        <h4 class="card-title"><b>brand : ${phone.brand}</b></h4>
+        <h4 class="card-title"><b>Brand Name : ${phone.brand}</b></h4>
         <h5 class=""><b>Specification :</b><h5>
         <div class="ms-2 mb-3">
             <p class="mb-1"><b>Memory :</b> ${phone.mainFeatures.memory}</p>
@@ -103,9 +103,10 @@ const displayPhoneDetail = phone => {
                 <p class="mb-1 ms-2">${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[5]}, ${phone.mainFeatures.sensors[4]}</p>
             <h5>
             <h5 class=""><b>Other :</b>
-                <p class="mb-1 ms-2">${others.WLAN},</p>
-                <p class="mb-1 ms-2">${others.Bluetooth},</p>
-                <p class="mb-1 ms-2">${others.GPS},</p>
+                <p class="mb-1 ms-2">WLAN : ${others.WLAN},</p>
+                <p class="mb-1 ms-2">Bluetooth : ${others.Bluetooth},</p>
+                <p class="mb-1 ms-2">GPS : ${others.GPS},</p>
+                <p class="mb-1 ms-2">Radio : ${others.Radio},</p>
             <h5>
         </div>
     </div>
