@@ -55,3 +55,44 @@ const searchResultDisplay = phones => {
         });
     }
 }
+const phoneDetails = (id) => {
+    // debugger;
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+        .then(res => res.json())
+
+        .then(data => displayPhoneDetail(data.data));
+    // .catch (error=> displayError(error))
+}
+
+const displayPhoneDetail = phone => {
+    console.log(phone)
+    const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.textContent = ''
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+    <img src="${phone.image}" class="w-50 mx-auto pt-5" alt="...">
+    <div class="card-body">
+        <p class="text-center">${phone.releaseDate}</p>
+        <h2 class="card-title mb-4 text-center">${phone.name}</h2>
+        <h4 class="card-title"><b>brand : ${phone.brand}</b></h4>
+        <h5 class=""><b>Specification :</b><h5>
+        <div class="ms-2 mb-3">
+            <p class="mb-1"><b>Memory :</b> ${phone.mainFeatures.memory}</p>
+            <p class="mb-1"><b>Storage :</b> ${phone.mainFeatures.storage}</p>
+            <p class="mb-1"><b>Processor  :</b> ${phone.mainFeatures.chipSet}</p>
+            <p class="mb-1"><b>Display :</b> ${phone.mainFeatures.displaySize}</p>
+            <h5 class=""><b>Sensors :</b>
+                <p class="mb-1 ms-2">${phone.mainFeatures.sensors[0]}, ${phone.mainFeatures.sensors[1]}</p>
+                <p class="mb-1 ms-2">${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[5]}, ${phone.mainFeatures.sensors[4]}</p>
+            <h5>
+            <h5 class=""><b>Other :</b>
+                <p class="mb-1 ms-2">${phone.mainFeatures.sensors[0]}, ${phone.mainFeatures.sensors[1]}</p>
+                <p class="mb-1 ms-2">${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[5]}, ${phone.mainFeatures.sensors[4]}</p>
+            <h5>
+        </div>
+    </div>
+    `;
+    phoneDetails.appendChild(div);
+}
