@@ -1,8 +1,10 @@
+/* 
+search area
+  
+*/
 const searchPhone = () => {
-    // debugger;
     const searchField = document.getElementById('search-field')
     const searchText = searchField.value
-    // console.log(searchText)
     searchField.value = '';
     document.getElementById('phone-details').textContent = '';
     document.getElementById('search-result').textContent = ''
@@ -18,11 +20,14 @@ const searchPhone = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => searchResultDisplay(data.data.slice(0, 20)))
-        // .catch(error => displayError(error))
 
     }
 
 }
+
+/* 
+search result area  
+*/
 const searchResultDisplay = phones => {
     // console.log(phones)
     const searchResult = document.getElementById('search-result')
@@ -55,6 +60,9 @@ const searchResultDisplay = phones => {
         });
     }
 }
+/*
+ id link arrow function  
+*/
 const phoneDetails = (id) => {
     // debugger;
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
@@ -62,11 +70,14 @@ const phoneDetails = (id) => {
         .then(res => res.json())
 
         .then(data => displayPhoneDetail(data.data));
-    // .catch (error=> displayError(error))
 }
 
+/*
+ phone details 
+*/
 const displayPhoneDetail = phone => {
-    console.log(phone.others)
+    // debugger;
+    // console.log(phone.others)
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = ''
     const div = document.createElement('div');
@@ -97,3 +108,7 @@ const displayPhoneDetail = phone => {
     `;
     phoneDetails.appendChild(div);
 }
+
+/*
+ THE END 
+*/
