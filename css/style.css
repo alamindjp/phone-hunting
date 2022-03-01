@@ -7,3 +7,20 @@
 #phone-card{
     border-radius: 15px;
 }
+
+/* media Quarry */
+@media only screen and (max-width: 600px){
+    #phone-details{
+        width: 95%;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 990px){
+    #phone-details{
+        width: 85%;
+    }
+}
+@media only screen and (min-width: 991px){
+    #phone-details{
+        width: 50%;
+    }
+}
