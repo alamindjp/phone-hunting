@@ -66,7 +66,7 @@ const phoneDetails = (id) => {
 }
 
 const displayPhoneDetail = phone => {
-    console.log(phone)
+    console.log(phone.others)
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = ''
     const div = document.createElement('div');
@@ -88,8 +88,9 @@ const displayPhoneDetail = phone => {
                 <p class="mb-1 ms-2">${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[5]}, ${phone.mainFeatures.sensors[4]}</p>
             <h5>
             <h5 class=""><b>Other :</b>
-                <p class="mb-1 ms-2">${phone.mainFeatures.sensors[0]}, ${phone.mainFeatures.sensors[1]}</p>
-                <p class="mb-1 ms-2">${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[5]}, ${phone.mainFeatures.sensors[4]}</p>
+                <p class="mb-1 ms-2">${phone.others.WLAN},</p>
+                <p class="mb-1 ms-2">${phone.others.Bluetooth},</p>
+                <p class="mb-1 ms-2">${phone.others.GPS},</p>
             <h5>
         </div>
     </div>
